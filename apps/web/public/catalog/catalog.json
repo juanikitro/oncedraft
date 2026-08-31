@@ -1,0 +1,2228 @@
+{
+  "version": "active-151",
+  "cartas": [
+    {
+      "id": "argentina-amadeo-carrizo-1962",
+      "nombre": "Amadeo Carrizo",
+      "pais": "Argentina",
+      "club": "River Plate",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-amadeo-carrizo-1962.webp"
+    },
+    {
+      "id": "argentina-roberto-perfumo-1967",
+      "nombre": "Roberto Perfumo",
+      "pais": "Argentina",
+      "club": "Racing Club",
+      "temporada": "1967",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-roberto-perfumo-1967.jpeg"
+    },
+    {
+      "id": "argentina-silvio-marzolini-1965",
+      "nombre": "Silvio Marzolini",
+      "pais": "Argentina",
+      "club": "Boca Juniors",
+      "temporada": "1965",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-silvio-marzolini-1965.jpg"
+    },
+    {
+      "id": "argentina-antonio-rattin-1965",
+      "nombre": "Antonio Rattín",
+      "pais": "Argentina",
+      "club": "Boca Juniors",
+      "temporada": "1965",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/argentina-antonio-rattin-1965.jpg"
+    },
+    {
+      "id": "argentina-daniel-passarella-1976",
+      "nombre": "Daniel Passarella",
+      "pais": "Argentina",
+      "club": "River Plate",
+      "temporada": "1976",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 90,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-daniel-passarella-1976.jpg"
+    },
+    {
+      "id": "argentina-ricardo-bochini-1974",
+      "nombre": "Ricardo Bochini",
+      "pais": "Argentina",
+      "club": "Independiente",
+      "temporada": "1974",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 86,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-ricardo-bochini-1974.jpg"
+    },
+    {
+      "id": "argentina-daniel-bertoni-1974",
+      "nombre": "Daniel Bertoni",
+      "pais": "Argentina",
+      "club": "Independiente",
+      "temporada": "1974",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 82,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-daniel-bertoni-1974.jpg"
+    },
+    {
+      "id": "argentina-mario-kempes-1976-77",
+      "nombre": "Mario Kempes",
+      "pais": "Argentina",
+      "club": "Valencia CF",
+      "temporada": "1976–77",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 90,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/argentina-mario-kempes-1976-77.jpg"
+    },
+    {
+      "id": "argentina-ubaldo-fillol-1978",
+      "nombre": "Ubaldo Fillol",
+      "pais": "Argentina",
+      "club": "River Plate",
+      "temporada": "1978",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 86,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-ubaldo-fillol-1978.jpg"
+    },
+    {
+      "id": "argentina-oscar-ruggeri-1981",
+      "nombre": "Oscar Ruggeri",
+      "pais": "Argentina",
+      "club": "Boca Juniors",
+      "temporada": "1981",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "LD"
+      ],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-oscar-ruggeri-1981.jpg"
+    },
+    {
+      "id": "argentina-jose-luis-brown-1982",
+      "nombre": "José Luis Brown",
+      "pais": "Argentina",
+      "club": "Estudiantes de La Plata",
+      "temporada": "1982",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 74,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/argentina-jose-luis-brown-1982.jpg"
+    },
+    {
+      "id": "argentina-julio-olarticoechea-1985",
+      "nombre": "Julio Olarticoechea",
+      "pais": "Argentina",
+      "club": "Boca Juniors",
+      "temporada": "1985",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "LD",
+        "MC"
+      ],
+      "ovr": 74,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/argentina-julio-olarticoechea-1985.jpg"
+    },
+    {
+      "id": "argentina-diego-maradona-1986-87",
+      "nombre": "Diego Maradona",
+      "pais": "Argentina",
+      "club": "Napoli",
+      "temporada": "1986–87",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 100,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-diego-maradona-1986-87.jpg"
+    },
+    {
+      "id": "argentina-fernando-redondo-1988-89",
+      "nombre": "Fernando Redondo",
+      "pais": "Argentina",
+      "club": "Argentinos Juniors",
+      "temporada": "1988–89",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 87,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-fernando-redondo-1988-89.jpg"
+    },
+    {
+      "id": "argentina-jorge-burruchaga-1985-86",
+      "nombre": "Jorge Burruchaga",
+      "pais": "Argentina",
+      "club": "FC Nantes",
+      "temporada": "1985–86",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "DC"
+      ],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-jorge-burruchaga-1985-86.jpg"
+    },
+    {
+      "id": "argentina-claudio-caniggia-1989-90",
+      "nombre": "Claudio Caniggia",
+      "pais": "Argentina",
+      "club": "Atalanta",
+      "temporada": "1989–90",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI",
+        "DC"
+      ],
+      "ovr": 82,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-claudio-caniggia-1989-90.jpg"
+    },
+    {
+      "id": "argentina-gabriel-batistuta-1992-93",
+      "nombre": "Gabriel Batistuta",
+      "pais": "Argentina",
+      "club": "Fiorentina",
+      "temporada": "1992–93",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [],
+      "ovr": 91,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/argentina-gabriel-batistuta-1992-93.jpg"
+    },
+    {
+      "id": "argentina-jorge-valdano-1985-86",
+      "nombre": "Jorge Valdano",
+      "pais": "Argentina",
+      "club": "Real Madrid",
+      "temporada": "1985–86",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/argentina-jorge-valdano-1985-86.jpg"
+    },
+    {
+      "id": "argentina-pablo-aimar-2003-04",
+      "nombre": "Pablo Aimar",
+      "pais": "Argentina",
+      "club": "Valencia CF",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-pablo-aimar-2003-04.jpg"
+    },
+    {
+      "id": "argentina-javier-zanetti-2008-09",
+      "nombre": "Javier Zanetti",
+      "pais": "Argentina",
+      "club": "Inter de Milán",
+      "temporada": "2008–09",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "LI",
+        "MC"
+      ],
+      "ovr": 90,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/argentina-javier-zanetti-2008-09.png"
+    },
+    {
+      "id": "argentina-roberto-ayala-2001-02",
+      "nombre": "Roberto Ayala",
+      "pais": "Argentina",
+      "club": "Valencia CF",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "LD"
+      ],
+      "ovr": 85,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/argentina-roberto-ayala-2001-02.jpg"
+    },
+    {
+      "id": "argentina-walter-samuel-2000-01",
+      "nombre": "Walter Samuel",
+      "pais": "Argentina",
+      "club": "AS Roma",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 85,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-walter-samuel-2000-01.jpg"
+    },
+    {
+      "id": "argentina-juan-pablo-sorin-2004-05",
+      "nombre": "Juan Pablo Sorín",
+      "pais": "Argentina",
+      "club": "Villarreal CF",
+      "temporada": "2004–05",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "MC",
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/argentina-juan-pablo-sorin-2004-05.jpg"
+    },
+    {
+      "id": "argentina-juan-sebastian-veron-1999-2000",
+      "nombre": "Juan Sebastián Verón",
+      "pais": "Argentina",
+      "club": "Lazio",
+      "temporada": "1999–2000",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 86,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-juan-sebastian-veron-1999-2000.jpg"
+    },
+    {
+      "id": "argentina-juan-roman-riquelme-2000",
+      "nombre": "Juan Román Riquelme",
+      "pais": "Argentina",
+      "club": "Boca Juniors",
+      "temporada": "2000",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 89,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-juan-roman-riquelme-2000.avif"
+    },
+    {
+      "id": "argentina-javier-mascherano-2007-08",
+      "nombre": "Javier Mascherano",
+      "pais": "Argentina",
+      "club": "Liverpool FC",
+      "temporada": "2007–08",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/argentina-javier-mascherano-2007-08.jpg"
+    },
+    {
+      "id": "argentina-lionel-messi-2008-09",
+      "nombre": "Lionel Messi",
+      "pais": "Argentina",
+      "club": "FC Barcelona",
+      "temporada": "2008–09",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "DC",
+        "EI"
+      ],
+      "ovr": 100,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-lionel-messi-2008-09.jpg"
+    },
+    {
+      "id": "argentina-hernan-crespo-1998-99",
+      "nombre": "Hernán Crespo",
+      "pais": "Argentina",
+      "club": "Parma",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [],
+      "ovr": 87,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/argentina-hernan-crespo-1998-99.png"
+    },
+    {
+      "id": "argentina-emiliano-martinez-2022-23",
+      "nombre": "Emiliano Martínez",
+      "pais": "Argentina",
+      "club": "Aston Villa",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/argentina-emiliano-martinez-2022-23.jpg"
+    },
+    {
+      "id": "argentina-nahuel-molina-2022-23",
+      "nombre": "Nahuel Molina",
+      "pais": "Argentina",
+      "club": "Atlético de Madrid",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/argentina-nahuel-molina-2022-23.png"
+    },
+    {
+      "id": "argentina-nicolas-otamendi-2022-23",
+      "nombre": "Nicolás Otamendi",
+      "pais": "Argentina",
+      "club": "Benfica",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "LD"
+      ],
+      "ovr": 82,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/argentina-nicolas-otamendi-2022-23.jpg"
+    },
+    {
+      "id": "argentina-marcos-acuna-2022-23",
+      "nombre": "Marcos Acuña",
+      "pais": "Argentina",
+      "club": "Sevilla FC",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "LI",
+        "EI"
+      ],
+      "ovr": 81,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/argentina-marcos-acuna-2022-23.jpg"
+    },
+    {
+      "id": "argentina-rodrigo-de-paul-2022-23",
+      "nombre": "Rodrigo De Paul",
+      "pais": "Argentina",
+      "club": "Atlético de Madrid",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/argentina-rodrigo-de-paul-2022-23.png"
+    },
+    {
+      "id": "argentina-enzo-fernandez-2022-23",
+      "nombre": "Enzo Fernández",
+      "pais": "Argentina",
+      "club": "Benfica",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-enzo-fernandez-2022-23.jpg"
+    },
+    {
+      "id": "argentina-angel-di-maria-2022-23",
+      "nombre": "Ángel Di María",
+      "pais": "Argentina",
+      "club": "Juventus",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "ED",
+        "MC"
+      ],
+      "ovr": 88,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/argentina-angel-di-maria-2022-23.jpg"
+    },
+    {
+      "id": "argentina-julian-alvarez-2022-23",
+      "nombre": "Julián Álvarez",
+      "pais": "Argentina",
+      "club": "Manchester City",
+      "temporada": "2022–23",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/argentina-julian-alvarez-2022-23.jpg"
+    },
+    {
+      "id": "brasil-gilmar-1962",
+      "nombre": "Gilmar",
+      "pais": "Brasil",
+      "club": "Santos FC",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/brasil-gilmar-1962.jpg"
+    },
+    {
+      "id": "brasil-bellini-1962",
+      "nombre": "Bellini",
+      "pais": "Brasil",
+      "club": "Vasco da Gama",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/brasil-bellini-1962.tif"
+    },
+    {
+      "id": "brasil-nilton-santos-1962",
+      "nombre": "Nilton Santos",
+      "pais": "Brasil",
+      "club": "Botafogo",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 88,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/brasil-nilton-santos-1962.jpg"
+    },
+    {
+      "id": "brasil-gerson-1963",
+      "nombre": "Gérson",
+      "pais": "Brasil",
+      "club": "Botafogo",
+      "temporada": "1963",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 87,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/brasil-gerson-1963.jpg"
+    },
+    {
+      "id": "brasil-garrincha-1962",
+      "nombre": "Garrincha",
+      "pais": "Brasil",
+      "club": "Botafogo",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [],
+      "ovr": 94,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/brasil-garrincha-1962.jpg"
+    },
+    {
+      "id": "brasil-pele-1962",
+      "nombre": "Pelé",
+      "pais": "Brasil",
+      "club": "Santos FC",
+      "temporada": "1962",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "MC",
+        "EI"
+      ],
+      "ovr": 99,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/brasil-pele-1962.jpg"
+    },
+    {
+      "id": "brasil-emerson-leao-1978",
+      "nombre": "Emerson Leão",
+      "pais": "Brasil",
+      "club": "Palmeiras",
+      "temporada": "1978",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 75,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/brasil-emerson-leao-1978.jpg"
+    },
+    {
+      "id": "brasil-oscar-1983",
+      "nombre": "Oscar",
+      "pais": "Brasil",
+      "club": "São Paulo FC",
+      "temporada": "1983",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/brasil-oscar-1983.jpg"
+    },
+    {
+      "id": "brasil-jairzinho-1976-77",
+      "nombre": "Jairzinho",
+      "pais": "Brasil",
+      "club": "Cruzeiro",
+      "temporada": "1976–77",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI",
+        "DC"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/brasil-jairzinho-1976-77.jpg"
+    },
+    {
+      "id": "brasil-socrates-1983",
+      "nombre": "Sócrates",
+      "pais": "Brasil",
+      "club": "Corinthians",
+      "temporada": "1983",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 87,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/brasil-socrates-1983.jpg"
+    },
+    {
+      "id": "brasil-zico-1981",
+      "nombre": "Zico",
+      "pais": "Brasil",
+      "club": "Flamengo",
+      "temporada": "1981",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "DC"
+      ],
+      "ovr": 97,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/brasil-zico-1981.jpg"
+    },
+    {
+      "id": "brasil-romario-1989-90",
+      "nombre": "Romário",
+      "pais": "Brasil",
+      "club": "PSV Eindhoven",
+      "temporada": "1989–90",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [],
+      "ovr": 92,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/brasil-romario-1989-90.jpg"
+    },
+    {
+      "id": "brasil-ronaldinho-2004-05",
+      "nombre": "Ronaldinho",
+      "pais": "Brasil",
+      "club": "FC Barcelona",
+      "temporada": "2004–05",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "MC",
+        "ED"
+      ],
+      "ovr": 94,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/brasil-ronaldinho-2004-05.jpg"
+    },
+    {
+      "id": "brasil-cafu-2000-01",
+      "nombre": "Cafu",
+      "pais": "Brasil",
+      "club": "AS Roma",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 89,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/brasil-cafu-2000-01.jpg"
+    },
+    {
+      "id": "brasil-lucio-2001-02",
+      "nombre": "Lúcio",
+      "pais": "Brasil",
+      "club": "Bayer Leverkusen",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 86,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/brasil-lucio-2001-02.jpg"
+    },
+    {
+      "id": "brasil-roberto-carlos-2001-02",
+      "nombre": "Roberto Carlos",
+      "pais": "Brasil",
+      "club": "Real Madrid",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "MC",
+        "EI"
+      ],
+      "ovr": 89,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/brasil-roberto-carlos-2001-02.jpg"
+    },
+    {
+      "id": "brasil-rivaldo-1998-99",
+      "nombre": "Rivaldo",
+      "pais": "Brasil",
+      "club": "FC Barcelona",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "EI",
+        "DC"
+      ],
+      "ovr": 91,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/brasil-rivaldo-1998-99.jpg"
+    },
+    {
+      "id": "brasil-ronaldo-1997-98",
+      "nombre": "Ronaldo",
+      "pais": "Brasil",
+      "club": "Inter de Milán",
+      "temporada": "1997–98",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 98,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/brasil-ronaldo-1997-98.jpg"
+    },
+    {
+      "id": "brasil-alisson-2018-19",
+      "nombre": "Alisson",
+      "pais": "Brasil",
+      "club": "Liverpool FC",
+      "temporada": "2018–19",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 87,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/brasil-alisson-2018-19.webp"
+    },
+    {
+      "id": "brasil-thiago-silva-2012-13",
+      "nombre": "Thiago Silva",
+      "pais": "Brasil",
+      "club": "Paris Saint-Germain",
+      "temporada": "2012–13",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 88,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/brasil-thiago-silva-2012-13.jpg"
+    },
+    {
+      "id": "brasil-willian-2017-18",
+      "nombre": "Willian",
+      "pais": "Brasil",
+      "club": "Chelsea FC",
+      "temporada": "2017–18",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI",
+        "MC"
+      ],
+      "ovr": 80,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/brasil-willian-2017-18.jpg"
+    },
+    {
+      "id": "brasil-marcelo-2016-17",
+      "nombre": "Marcelo",
+      "pais": "Brasil",
+      "club": "Real Madrid",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "MC",
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/brasil-marcelo-2016-17.jpg"
+    },
+    {
+      "id": "brasil-casemiro-2016-17",
+      "nombre": "Casemiro",
+      "pais": "Brasil",
+      "club": "Real Madrid",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/brasil-casemiro-2016-17.jpg"
+    },
+    {
+      "id": "brasil-neymar-2014-15",
+      "nombre": "Neymar",
+      "pais": "Brasil",
+      "club": "FC Barcelona",
+      "temporada": "2014–15",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC",
+        "ED"
+      ],
+      "ovr": 90,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/brasil-neymar-2014-15.jpg"
+    },
+    {
+      "id": "italia-dino-zoff-1972-73",
+      "nombre": "Dino Zoff",
+      "pais": "Italia",
+      "club": "Juventus",
+      "temporada": "1972–73",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 88,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/italia-dino-zoff-1972-73.jpg"
+    },
+    {
+      "id": "italia-tarcisio-burgnich-1964-65",
+      "nombre": "Tarcisio Burgnich",
+      "pais": "Italia",
+      "club": "Inter de Milán",
+      "temporada": "1964–65",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/italia-tarcisio-burgnich-1964-65.jpg"
+    },
+    {
+      "id": "italia-giacinto-facchetti-1964-65",
+      "nombre": "Giacinto Facchetti",
+      "pais": "Italia",
+      "club": "Inter de Milán",
+      "temporada": "1964–65",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 87,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/italia-giacinto-facchetti-1964-65.jpg"
+    },
+    {
+      "id": "italia-gianni-rivera-1968-69",
+      "nombre": "Gianni Rivera",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "1968–69",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 88,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/italia-gianni-rivera-1968-69.jpg"
+    },
+    {
+      "id": "italia-sandro-mazzola-1964-65",
+      "nombre": "Sandro Mazzola",
+      "pais": "Italia",
+      "club": "Inter de Milán",
+      "temporada": "1964–65",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "DC"
+      ],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/italia-sandro-mazzola-1964-65.jpg"
+    },
+    {
+      "id": "italia-gigi-riva-1969-70",
+      "nombre": "Gigi Riva",
+      "pais": "Italia",
+      "club": "Cagliari",
+      "temporada": "1969–70",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 86,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/italia-gigi-riva-1969-70.jpeg"
+    },
+    {
+      "id": "italia-walter-zenga-1988-89",
+      "nombre": "Walter Zenga",
+      "pais": "Italia",
+      "club": "Inter de Milán",
+      "temporada": "1988–89",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/italia-walter-zenga-1988-89.png"
+    },
+    {
+      "id": "italia-giuseppe-bergomi-1988-89",
+      "nombre": "Giuseppe Bergomi",
+      "pais": "Italia",
+      "club": "Inter de Milán",
+      "temporada": "1988–89",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 82,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/italia-giuseppe-bergomi-1988-89.png"
+    },
+    {
+      "id": "italia-franco-baresi-1988-89",
+      "nombre": "Franco Baresi",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "1988–89",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 94,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/italia-franco-baresi-1988-89.jpg"
+    },
+    {
+      "id": "italia-gaetano-scirea-1981-82",
+      "nombre": "Gaetano Scirea",
+      "pais": "Italia",
+      "club": "Juventus",
+      "temporada": "1981–82",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 87,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/italia-gaetano-scirea-1981-82.jpg"
+    },
+    {
+      "id": "italia-paolo-maldini-1992-93",
+      "nombre": "Paolo Maldini",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "1992–93",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 92,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/italia-paolo-maldini-1992-93.jpg"
+    },
+    {
+      "id": "italia-marco-tardelli-1981-82",
+      "nombre": "Marco Tardelli",
+      "pais": "Italia",
+      "club": "Juventus",
+      "temporada": "1981–82",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 82,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/italia-marco-tardelli-1981-82.jpg"
+    },
+    {
+      "id": "italia-roberto-baggio-1989-90",
+      "nombre": "Roberto Baggio",
+      "pais": "Italia",
+      "club": "Fiorentina",
+      "temporada": "1989–90",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "DC"
+      ],
+      "ovr": 89,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/italia-roberto-baggio-1989-90.jpg"
+    },
+    {
+      "id": "italia-roberto-donadoni-1987-88",
+      "nombre": "Roberto Donadoni",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "1987–88",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI",
+        "MC"
+      ],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/italia-roberto-donadoni-1987-88.jpg"
+    },
+    {
+      "id": "italia-gianluigi-buffon-1998-99",
+      "nombre": "Gianluigi Buffon",
+      "pais": "Italia",
+      "club": "Parma",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 91,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/italia-gianluigi-buffon-1998-99.jpg"
+    },
+    {
+      "id": "italia-gianluca-zambrotta-2002-03",
+      "nombre": "Gianluca Zambrotta",
+      "pais": "Italia",
+      "club": "Juventus",
+      "temporada": "2002–03",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "LI",
+        "EI"
+      ],
+      "ovr": 82,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/italia-gianluca-zambrotta-2002-03.jpg"
+    },
+    {
+      "id": "italia-fabio-cannavaro-1998-99",
+      "nombre": "Fabio Cannavaro",
+      "pais": "Italia",
+      "club": "Parma",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 88,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/italia-fabio-cannavaro-1998-99.png"
+    },
+    {
+      "id": "italia-alessandro-nesta-1999-2000",
+      "nombre": "Alessandro Nesta",
+      "pais": "Italia",
+      "club": "Lazio",
+      "temporada": "1999–2000",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 88,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/italia-alessandro-nesta-1999-2000.png"
+    },
+    {
+      "id": "italia-demetrio-albertini-1994-95",
+      "nombre": "Demetrio Albertini",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "1994–95",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/italia-demetrio-albertini-1994-95.jpg"
+    },
+    {
+      "id": "italia-andrea-pirlo-2006-07",
+      "nombre": "Andrea Pirlo",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "2006–07",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 90,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/italia-andrea-pirlo-2006-07.jpg"
+    },
+    {
+      "id": "italia-gennaro-gattuso-2006-07",
+      "nombre": "Gennaro Gattuso",
+      "pais": "Italia",
+      "club": "AC Milan",
+      "temporada": "2006–07",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "LD"
+      ],
+      "ovr": 81,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/italia-gennaro-gattuso-2006-07.jpg"
+    },
+    {
+      "id": "italia-francesco-totti-2000-01",
+      "nombre": "Francesco Totti",
+      "pais": "Italia",
+      "club": "AS Roma",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC",
+        "EI"
+      ],
+      "ovr": 89,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/italia-francesco-totti-2000-01.jpg"
+    },
+    {
+      "id": "italia-alessandro-del-piero-1997-98",
+      "nombre": "Alessandro Del Piero",
+      "pais": "Italia",
+      "club": "Juventus",
+      "temporada": "1997–98",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "DC",
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/italia-alessandro-del-piero-1997-98.jpg"
+    },
+    {
+      "id": "italia-antonio-cassano-2003-04",
+      "nombre": "Antonio Cassano",
+      "pais": "Italia",
+      "club": "AS Roma",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 75,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/italia-antonio-cassano-2003-04.jpg"
+    },
+    {
+      "id": "francia-marius-tresor-1980",
+      "nombre": "Marius Trésor",
+      "pais": "Francia",
+      "club": "Olympique de Marseille",
+      "temporada": "1980",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/francia-marius-tresor-1980.jpg"
+    },
+    {
+      "id": "francia-manuel-amoros-1983-84",
+      "nombre": "Manuel Amoros",
+      "pais": "Francia",
+      "club": "AS Monaco",
+      "temporada": "1983–84",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "LI",
+        "MC"
+      ],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/francia-manuel-amoros-1983-84.jpg"
+    },
+    {
+      "id": "francia-michel-platini-1984-85",
+      "nombre": "Michel Platini",
+      "pais": "Francia",
+      "club": "Juventus",
+      "temporada": "1984–85",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 93,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/francia-michel-platini-1984-85.jpg"
+    },
+    {
+      "id": "francia-jean-tigana-1984-85",
+      "nombre": "Jean Tigana",
+      "pais": "Francia",
+      "club": "Girondins de Bordeaux",
+      "temporada": "1984–85",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/francia-jean-tigana-1984-85.jpg"
+    },
+    {
+      "id": "francia-alain-giresse-1984-85",
+      "nombre": "Alain Giresse",
+      "pais": "Francia",
+      "club": "Girondins de Bordeaux",
+      "temporada": "1984–85",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 85,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/francia-alain-giresse-1984-85.jpg"
+    },
+    {
+      "id": "francia-david-ginola-1992-93",
+      "nombre": "David Ginola",
+      "pais": "Francia",
+      "club": "Paris Saint-Germain",
+      "temporada": "1992–93",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "MC",
+        "ED"
+      ],
+      "ovr": 82,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/francia-david-ginola-1992-93.jpg"
+    },
+    {
+      "id": "francia-fabien-barthez-2000-01",
+      "nombre": "Fabien Barthez",
+      "pais": "Francia",
+      "club": "Manchester United",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/francia-fabien-barthez-2000-01.jpg"
+    },
+    {
+      "id": "francia-lilian-thuram-1998-99",
+      "nombre": "Lilian Thuram",
+      "pais": "Francia",
+      "club": "Parma",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 86,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/francia-lilian-thuram-1998-99.png"
+    },
+    {
+      "id": "francia-marcel-desailly-1998-99",
+      "nombre": "Marcel Desailly",
+      "pais": "Francia",
+      "club": "Chelsea FC",
+      "temporada": "1998–99",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 87,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/francia-marcel-desailly-1998-99.jpg"
+    },
+    {
+      "id": "francia-laurent-blanc-2001-02",
+      "nombre": "Laurent Blanc",
+      "pais": "Francia",
+      "club": "Manchester United",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/francia-laurent-blanc-2001-02.jpg"
+    },
+    {
+      "id": "francia-bixente-lizarazu-2000-01",
+      "nombre": "Bixente Lizarazu",
+      "pais": "Francia",
+      "club": "Bayern Múnich",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/francia-bixente-lizarazu-2000-01.jpeg"
+    },
+    {
+      "id": "francia-patrick-vieira-2003-04",
+      "nombre": "Patrick Vieira",
+      "pais": "Francia",
+      "club": "Arsenal",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 88,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/francia-patrick-vieira-2003-04.webp"
+    },
+    {
+      "id": "francia-zinedine-zidane-1997-98",
+      "nombre": "Zinedine Zidane",
+      "pais": "Francia",
+      "club": "Juventus",
+      "temporada": "1997–98",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 94,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/francia-zinedine-zidane-1997-98.jpg"
+    },
+    {
+      "id": "francia-thierry-henry-2003-04",
+      "nombre": "Thierry Henry",
+      "pais": "Francia",
+      "club": "Arsenal",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC",
+        "ED"
+      ],
+      "ovr": 91,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/francia-thierry-henry-2003-04.webp"
+    },
+    {
+      "id": "francia-hugo-lloris-2016-17",
+      "nombre": "Hugo Lloris",
+      "pais": "Francia",
+      "club": "Tottenham Hotspur",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/francia-hugo-lloris-2016-17.jpg"
+    },
+    {
+      "id": "francia-benjamin-pavard-2019-20",
+      "nombre": "Benjamin Pavard",
+      "pais": "Francia",
+      "club": "Bayern Múnich",
+      "temporada": "2019–20",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC",
+        "LI"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/francia-benjamin-pavard-2019-20.jpeg"
+    },
+    {
+      "id": "francia-raphael-varane-2016-17",
+      "nombre": "Raphaël Varane",
+      "pais": "Francia",
+      "club": "Real Madrid",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/francia-raphael-varane-2016-17.jpg"
+    },
+    {
+      "id": "francia-laurent-koscielny-2015-16",
+      "nombre": "Laurent Koscielny",
+      "pais": "Francia",
+      "club": "Arsenal",
+      "temporada": "2015–16",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/francia-laurent-koscielny-2015-16.webp"
+    },
+    {
+      "id": "francia-lucas-hernandez-2019-20",
+      "nombre": "Lucas Hernández",
+      "pais": "Francia",
+      "club": "Bayern Múnich",
+      "temporada": "2019–20",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/francia-lucas-hernandez-2019-20.jpg"
+    },
+    {
+      "id": "francia-n-golo-kante-2016-17",
+      "nombre": "N'Golo Kanté",
+      "pais": "Francia",
+      "club": "Chelsea FC",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 87,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/francia-n-golo-kante-2016-17.jpg"
+    },
+    {
+      "id": "francia-paul-pogba-2014-15",
+      "nombre": "Paul Pogba",
+      "pais": "Francia",
+      "club": "Juventus",
+      "temporada": "2014–15",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/francia-paul-pogba-2014-15.jpg"
+    },
+    {
+      "id": "francia-antoine-griezmann-2015-16",
+      "nombre": "Antoine Griezmann",
+      "pais": "Francia",
+      "club": "Atlético de Madrid",
+      "temporada": "2015–16",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "MC",
+        "DC"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/francia-antoine-griezmann-2015-16.png"
+    },
+    {
+      "id": "francia-kylian-mbappe-2018-19",
+      "nombre": "Kylian Mbappé",
+      "pais": "Francia",
+      "club": "Paris Saint-Germain",
+      "temporada": "2018–19",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "DC",
+        "EI"
+      ],
+      "ovr": 89,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/francia-kylian-mbappe-2018-19.jpeg"
+    },
+    {
+      "id": "francia-franck-ribery-2012-13",
+      "nombre": "Franck Ribéry",
+      "pais": "Francia",
+      "club": "Bayern Múnich",
+      "temporada": "2012–13",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "ED",
+        "MC"
+      ],
+      "ovr": 89,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/francia-franck-ribery-2012-13.jpeg"
+    },
+    {
+      "id": "espana-migueli-1975-76",
+      "nombre": "Migueli",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "1975–76",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 76,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/espana-migueli-1975-76.jpg"
+    },
+    {
+      "id": "espana-jose-antonio-camacho-1974-75",
+      "nombre": "José Antonio Camacho",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "1974–75",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/espana-jose-antonio-camacho-1974-75.jpg"
+    },
+    {
+      "id": "espana-luis-suarez-1962-63",
+      "nombre": "Luis Suárez",
+      "pais": "España",
+      "club": "Inter de Milán",
+      "temporada": "1962–63",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 88,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/espana-luis-suarez-1962-63.jpg"
+    },
+    {
+      "id": "espana-amancio-1969-70",
+      "nombre": "Amancio",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "1969–70",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/espana-amancio-1969-70.jpg"
+    },
+    {
+      "id": "espana-santillana-1975-76",
+      "nombre": "Santillana",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "1975–76",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [],
+      "ovr": 82,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/espana-santillana-1975-76.jpg"
+    },
+    {
+      "id": "espana-pirri-1964-65",
+      "nombre": "Pirri",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "1964–65",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC",
+        "DC"
+      ],
+      "ovr": 82,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/espana-pirri-1964-65.jpg"
+    },
+    {
+      "id": "espana-iker-casillas-2001-02",
+      "nombre": "Iker Casillas",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 89,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/espana-iker-casillas-2001-02.jpg"
+    },
+    {
+      "id": "espana-michel-salgado-2001-02",
+      "nombre": "Míchel Salgado",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/espana-michel-salgado-2001-02.jpg"
+    },
+    {
+      "id": "espana-fernando-hierro-1997-98",
+      "nombre": "Fernando Hierro",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "1997–98",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC",
+        "DC"
+      ],
+      "ovr": 87,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/espana-fernando-hierro-1997-98.jpg"
+    },
+    {
+      "id": "espana-carles-puyol-2005-06",
+      "nombre": "Carles Puyol",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2005–06",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC",
+        "LI"
+      ],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/espana-carles-puyol-2005-06.jpg"
+    },
+    {
+      "id": "espana-joan-capdevila-2001-02",
+      "nombre": "Joan Capdevila",
+      "pais": "España",
+      "club": "Deportivo La Coruña",
+      "temporada": "2001–02",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/espana-joan-capdevila-2001-02.jpg"
+    },
+    {
+      "id": "espana-xavi-2008-09",
+      "nombre": "Xavi",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2008–09",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 90,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/espana-xavi-2008-09.jpg"
+    },
+    {
+      "id": "espana-andres-iniesta-2008-09",
+      "nombre": "Andrés Iniesta",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2008–09",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 89,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/espana-andres-iniesta-2008-09.jpg"
+    },
+    {
+      "id": "espana-raul-2000-01",
+      "nombre": "Raúl",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "2000–01",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC",
+        "ED"
+      ],
+      "ovr": 83,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/espana-raul-2000-01.jpg"
+    },
+    {
+      "id": "espana-david-de-gea-2017-18",
+      "nombre": "David de Gea",
+      "pais": "España",
+      "club": "Manchester United",
+      "temporada": "2017–18",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/espana-david-de-gea-2017-18.jpg"
+    },
+    {
+      "id": "espana-dani-carvajal-2016-17",
+      "nombre": "Dani Carvajal",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "2016–17",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/espana-dani-carvajal-2016-17.jpg"
+    },
+    {
+      "id": "espana-sergio-ramos-2013-14",
+      "nombre": "Sergio Ramos",
+      "pais": "España",
+      "club": "Real Madrid",
+      "temporada": "2013–14",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "LD"
+      ],
+      "ovr": 88,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/espana-sergio-ramos-2013-14.jpg"
+    },
+    {
+      "id": "espana-gerard-pique-2010-11",
+      "nombre": "Gerard Piqué",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2010–11",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/espana-gerard-pique-2010-11.jpg"
+    },
+    {
+      "id": "espana-jordi-alba-2014-15",
+      "nombre": "Jordi Alba",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2014–15",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 83,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/espana-jordi-alba-2014-15.jpg"
+    },
+    {
+      "id": "espana-sergio-busquets-2010-11",
+      "nombre": "Sergio Busquets",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2010–11",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 86,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/espana-sergio-busquets-2010-11.jpg"
+    },
+    {
+      "id": "espana-xabi-alonso-2014-15",
+      "nombre": "Xabi Alonso",
+      "pais": "España",
+      "club": "Bayern Múnich",
+      "temporada": "2014–15",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 83,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/espana-xabi-alonso-2014-15.jpg"
+    },
+    {
+      "id": "espana-david-silva-2017-18",
+      "nombre": "David Silva",
+      "pais": "España",
+      "club": "Manchester City",
+      "temporada": "2017–18",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "MC",
+        "ED"
+      ],
+      "ovr": 83,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/espana-david-silva-2017-18.jpg"
+    },
+    {
+      "id": "espana-pedro-2010-11",
+      "nombre": "Pedro",
+      "pais": "España",
+      "club": "FC Barcelona",
+      "temporada": "2010–11",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "ED",
+        "DC"
+      ],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/espana-pedro-2010-11.jpg"
+    },
+    {
+      "id": "espana-fernando-torres-2011-12",
+      "nombre": "Fernando Torres",
+      "pais": "España",
+      "club": "Chelsea FC",
+      "temporada": "2011–12",
+      "cicloMundial": "2010-2025",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/espana-fernando-torres-2011-12.jpg"
+    },
+    {
+      "id": "portugal-humberto-coelho-1968-69",
+      "nombre": "Humberto Coelho",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1968–69",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [
+        "MC"
+      ],
+      "ovr": 76,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/portugal-humberto-coelho-1968-69.jpg"
+    },
+    {
+      "id": "portugal-mario-coluna-1962-63",
+      "nombre": "Mário Coluna",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1962–63",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DC"
+      ],
+      "ovr": 85,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/portugal-mario-coluna-1962-63.jpg"
+    },
+    {
+      "id": "portugal-jose-augusto-1962-63",
+      "nombre": "José Augusto",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1962–63",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/portugal-jose-augusto-1962-63.png"
+    },
+    {
+      "id": "portugal-eusebio-1965-66",
+      "nombre": "Eusébio",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1965–66",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "ED",
+        "EI"
+      ],
+      "ovr": 94,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/portugal-eusebio-1965-66.jpg"
+    },
+    {
+      "id": "portugal-antonio-simoes-1962-63",
+      "nombre": "António Simões",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1962–63",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 80,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/portugal-antonio-simoes-1962-63.jpg"
+    },
+    {
+      "id": "portugal-jaime-graca-1965-66",
+      "nombre": "Jaime Graça",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1965–66",
+      "cicloMundial": "1962-1977",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 76,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/portugal-jaime-graca-1965-66.jpg"
+    },
+    {
+      "id": "portugal-vitor-baia-1991-92",
+      "nombre": "Vítor Baía",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "1991–92",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "POR",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Muro defensivo",
+      "imagen": "/catalog/catalog-assets/portugal-vitor-baia-1991-92.jpg"
+    },
+    {
+      "id": "portugal-fernando-couto-1991-92",
+      "nombre": "Fernando Couto",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "1991–92",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 81,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/portugal-fernando-couto-1991-92.jpg"
+    },
+    {
+      "id": "portugal-joao-pinto-1987-88",
+      "nombre": "João Pinto",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "1987–88",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 80,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/portugal-joao-pinto-1987-88.jpg"
+    },
+    {
+      "id": "portugal-paulo-sousa-1991-92",
+      "nombre": "Paulo Sousa",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1991–92",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [
+        "DFC"
+      ],
+      "ovr": 82,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/portugal-paulo-sousa-1991-92.jpg"
+    },
+    {
+      "id": "portugal-paulo-futre-1987-88",
+      "nombre": "Paulo Futre",
+      "pais": "Portugal",
+      "club": "Atlético de Madrid",
+      "temporada": "1987–88",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "ED"
+      ],
+      "ovr": 85,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/portugal-paulo-futre-1987-88.jpg"
+    },
+    {
+      "id": "portugal-rui-aguas-1990-91",
+      "nombre": "Rui Águas",
+      "pais": "Portugal",
+      "club": "Benfica",
+      "temporada": "1990–91",
+      "cicloMundial": "1978-1993",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 76,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/portugal-rui-aguas-1990-91.jpg"
+    },
+    {
+      "id": "portugal-deco-2003-04",
+      "nombre": "Deco",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "MC",
+      "posicionesSecundarias": [],
+      "ovr": 87,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/portugal-deco-2003-04.jpg"
+    },
+    {
+      "id": "portugal-paulo-ferreira-2003-04",
+      "nombre": "Paulo Ferreira",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LD",
+      "posicionesSecundarias": [
+        "DFC",
+        "LI"
+      ],
+      "ovr": 80,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/portugal-paulo-ferreira-2003-04.jpg"
+    },
+    {
+      "id": "portugal-ricardo-carvalho-2003-04",
+      "nombre": "Ricardo Carvalho",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DFC",
+      "posicionesSecundarias": [],
+      "ovr": 83,
+      "rasgo": "Fisico",
+      "imagen": "/catalog/catalog-assets/portugal-ricardo-carvalho-2003-04.jpg"
+    },
+    {
+      "id": "portugal-nuno-valente-2003-04",
+      "nombre": "Nuno Valente",
+      "pais": "Portugal",
+      "club": "FC Porto",
+      "temporada": "2003–04",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "LI",
+      "posicionesSecundarias": [],
+      "ovr": 78,
+      "rasgo": "Velocista",
+      "imagen": "/catalog/catalog-assets/portugal-nuno-valente-2003-04.jpg"
+    },
+    {
+      "id": "portugal-luis-figo-1999-2000",
+      "nombre": "Luís Figo",
+      "pais": "Portugal",
+      "club": "FC Barcelona",
+      "temporada": "1999–2000",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "ED",
+      "posicionesSecundarias": [
+        "EI",
+        "MC"
+      ],
+      "ovr": 89,
+      "rasgo": "Creador",
+      "imagen": "/catalog/catalog-assets/portugal-luis-figo-1999-2000.jpg"
+    },
+    {
+      "id": "portugal-pauleta-2002-03",
+      "nombre": "Pauleta",
+      "pais": "Portugal",
+      "club": "Paris Saint-Germain",
+      "temporada": "2002–03",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "DC",
+      "posicionesSecundarias": [
+        "EI"
+      ],
+      "ovr": 82,
+      "rasgo": "Rematador",
+      "imagen": "/catalog/catalog-assets/portugal-pauleta-2002-03.jpg"
+    },
+    {
+      "id": "portugal-cristiano-ronaldo-2007-08",
+      "nombre": "Cristiano Ronaldo",
+      "pais": "Portugal",
+      "club": "Manchester United",
+      "temporada": "2007–08",
+      "cicloMundial": "1994-2009",
+      "posicionPrimaria": "EI",
+      "posicionesSecundarias": [
+        "DC",
+        "ED"
+      ],
+      "ovr": 96,
+      "rasgo": "Tecnico",
+      "imagen": "/catalog/catalog-assets/portugal-cristiano-ronaldo-2007-08.jpg"
+    }
+  ]
+}

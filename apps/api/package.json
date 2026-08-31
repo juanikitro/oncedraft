@@ -1,0 +1,27 @@
+{
+  "name": "@draft/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node-pg-migrate -m migrations up",
+    "catalog:import-active": "tsx src/import-active-catalog.ts"
+  },
+  "dependencies": {
+    "@draft/catalog": "^0.1.0",
+    "@draft/game-core": "^0.1.0",
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/rate-limit": "^11.2.0",
+    "argon2": "^0.45.1",
+    "fastify": "^5.12.1",
+    "node-pg-migrate": "^9.0.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "once-draft",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run typecheck -w @draft/game-core && npm run typecheck -w @draft/catalog && npm run build -w @draft/web && npm run typecheck -w @draft/api",
+    "catalog:compile": "tsx scripts/compile-candidate-catalog.ts",
+    "catalog:verify-active": "tsx scripts/verify-active-catalog.ts",
+    "catalog:import-active": "npm run catalog:import-active -w @draft/api",
+    "catalog:publish-web": "tsx scripts/publish-active-catalog-web.ts",
+    "catalog:analyze": "tsx scripts/analyze-candidate-catalog.ts",
+    "catalog:simulate": "tsx scripts/simulate-candidate-drafts.ts",
+    "test": "npm run test --workspaces --if-present && npm run test:catalog-gate",
+    "test:catalog-gate": "vitest run scripts/active-catalog.test.ts",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "dev:web": "npm run dev -w @draft/web",
+    "dev:api": "npm run dev -w @draft/api"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

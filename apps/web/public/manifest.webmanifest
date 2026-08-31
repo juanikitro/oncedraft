@@ -1,0 +1,19 @@
+{
+  "name": "Once Draft",
+  "short_name": "Once Draft",
+  "description": "Construí la mejor selección histórica en once decisiones.",
+  "lang": "es-AR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#161a1d",
+  "theme_color": "#161a1d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

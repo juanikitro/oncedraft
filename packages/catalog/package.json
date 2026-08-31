@@ -1,0 +1,16 @@
+{
+  "name": "@draft/catalog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@draft/game-core": "^0.1.0"
+  }
+}
