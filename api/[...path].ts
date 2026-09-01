@@ -17,7 +17,15 @@ async function obtenerServidor() {
 export default async function handler(request: IncomingMessage, response: ServerResponse): Promise<void> {
   const app = await obtenerServidor();
   const urlOriginal = request.url ?? "/";
-  request.url = urlOriginal.replace(/^\/api(?=\/|$)/, "") || "/";
+  const url = new URL(urlOriginal, `http://${request.headers.host ?? "localhost"}`);
+  const rutaReescrita = url.searchParams.get("path");
+
+  if (url.pathname === "/api/[...path]" && rutaReescrita) {
+    url.searchParams.delete("path");
+    request.url = `/${rutaReescrita}${url.search}`;
+  } else {
+    request.url = urlOriginal.replace(/^\/api(?=\/|$)/, "") || "/";
+  }
   app.server.emit("request", request, response);
 }
 
