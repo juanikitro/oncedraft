@@ -240,6 +240,30 @@ describe("confirmarPick", () => {
 
     expect(partida.ofertaActiva.opciones).toHaveLength(5);
   });
+
+  it("calcula el Squad Score final sobre la plaza manual elegida", () => {
+    const catalogo = crearCatalogoConContextosDeCincoCartas(12);
+    let partida = iniciarPartida({ catalogo, seed: "seed-pick-final-manual" });
+
+    while (partida.numeroDePick < 11) {
+      partida = confirmarPrimeraOpcion(partida, catalogo);
+    }
+
+    const cartaFinal = partida.ofertaActiva.opciones[0];
+    if (!cartaFinal) throw new Error("La fixture debe producir una carta final.");
+
+    const finalizada = confirmarPick({
+      catalogo,
+      partida,
+      idCartaElegida: cartaFinal.id,
+      idPlazaDestino: "POR",
+    });
+
+    expect(finalizada.completada).toBe(true);
+    expect(finalizada.ubicaciones).toHaveLength(11);
+    expect(finalizada.ubicaciones).toContainEqual({ idCarta: cartaFinal.id, idPlaza: "POR" });
+    expect(finalizada.resultado?.puntaje).toBeTypeOf("number");
+  });
 });
 
 describe("usarReroll", () => {

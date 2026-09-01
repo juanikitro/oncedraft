@@ -121,6 +121,8 @@ export interface ConfirmarPickInput {
   catalogo: Catalogo;
   partida: EstadoPartida;
   idCartaElegida: string;
+  /** Permite confirmar directamente la ubicación manual elegida en la pizarra. */
+  idPlazaDestino?: IdPlaza;
 }
 
 export interface UsarRerollInput {
@@ -461,7 +463,7 @@ export function iniciarPartidaConProteccion({
 }
 
 /** Confirma una carta de la oferta activa y crea la siguiente oferta normal. */
-export function confirmarPick({ catalogo, partida, idCartaElegida }: ConfirmarPickInput): EstadoPartida {
+export function confirmarPick({ catalogo, partida, idCartaElegida, idPlazaDestino }: ConfirmarPickInput): EstadoPartida {
   if (partida.completada) {
     throw new Error("La partida ya fue completada.");
   }
@@ -474,7 +476,10 @@ export function confirmarPick({ catalogo, partida, idCartaElegida }: ConfirmarPi
 
   const contextosAgotados = [...partida.contextosAgotados, partida.ofertaActiva.contexto];
   const cartasElegidas = [...partida.cartasElegidas, cartaElegida];
-  const ubicaciones = ubicarCartaAutomaticamente({ carta: cartaElegida, ubicaciones: partida.ubicaciones });
+  const ubicacionesAutomaticas = ubicarCartaAutomaticamente({ carta: cartaElegida, ubicaciones: partida.ubicaciones });
+  const ubicaciones = idPlazaDestino
+    ? moverCartaEntrePlazas({ ubicaciones: ubicacionesAutomaticas, idCarta: cartaElegida.id, idPlazaDestino })
+    : ubicacionesAutomaticas;
   const esPickFinal = partida.numeroDePick === PLAZAS_4_3_3.length;
 
   if (esPickFinal) {
