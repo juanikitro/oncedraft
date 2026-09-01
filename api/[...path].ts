@@ -1,11 +1,14 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 
-import { crearServidorDeProduccion } from "../apps/api/src/production.js";
+let servidor: ReturnType<typeof iniciarServidor> | undefined;
 
-let servidor: Promise<Awaited<ReturnType<typeof crearServidorDeProduccion>>> | undefined;
+async function iniciarServidor() {
+  const { crearServidorDeProduccion } = await import("../apps/api/src/production.js");
+  return crearServidorDeProduccion();
+}
 
 async function obtenerServidor() {
-  servidor ??= crearServidorDeProduccion();
+  servidor ??= iniciarServidor();
   const resultado = await servidor;
   await resultado.app.ready();
   return resultado.app;
