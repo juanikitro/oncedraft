@@ -1,5 +1,6 @@
 export type Usuario = {
   id: string;
+  email: string;
   username: string;
   passwordHash: string;
 };
@@ -15,21 +16,56 @@ export type Progreso = {
   personalBest: number | null;
 };
 
+export type EstadoDeRun = "active" | "completed" | "abandoned";
+
+export type RunPersistida = {
+  guestRunId: string;
+  catalogVersion: string;
+  seed: string;
+  snapshot: Record<string, unknown>;
+  status: EstadoDeRun;
+  clientRevision: number;
+};
+
+export type GuardarRun = RunPersistida & {
+  cartasVistas: readonly string[];
+  personalBest: number | null;
+};
+
+export type EstadoDeCuenta = Progreso & {
+  runActiva: RunPersistida | null;
+  cartasVistas: readonly string[];
+};
+
+export class RunDesactualizadaError extends Error {
+  constructor() {
+    super("La partida fue actualizada desde otro dispositivo.");
+  }
+}
+
+export class RunEnConflictoError extends Error {
+  constructor() {
+    super("La revisión de la partida no coincide con el estado guardado.");
+  }
+}
+
 export interface RepositorioDeCuentas {
   verificarDisponibilidad(): Promise<boolean>;
   crearUsuario(input: Omit<Usuario, "id">): Promise<Usuario>;
-  buscarUsuarioPorUsername(username: string): Promise<Usuario | null>;
+  buscarUsuarioPorEmail(email: string): Promise<Usuario | null>;
   buscarUsuarioPorId(id: string): Promise<Usuario | null>;
   crearSesion(sesion: Sesion): Promise<void>;
   buscarSesionActiva(tokenHash: string, ahora: Date): Promise<Sesion | null>;
   revocarSesion(tokenHash: string, ahora: Date): Promise<void>;
   obtenerProgreso(usuarioId: string): Promise<Progreso>;
   guardarRecordPersonal(usuarioId: string, score: number): Promise<Progreso>;
+  obtenerEstado(usuarioId: string): Promise<EstadoDeCuenta>;
+  guardarRun(usuarioId: string, input: GuardarRun): Promise<EstadoDeCuenta>;
 }
 
-export class UsernameYaExisteError extends Error {
+export class EmailYaExisteError extends Error {
   constructor() {
-    super("El nombre de usuario ya está en uso.");
+    super("Ya existe una cuenta con ese email.");
   }
 }
 
@@ -37,6 +73,8 @@ export function crearRepositorioDeCuentasEnMemoria(): RepositorioDeCuentas {
   const usuarios = new Map<string, Usuario>();
   const sesiones = new Map<string, Sesion>();
   const progresos = new Map<string, Progreso>();
+  const runs = new Map<string, RunPersistida>();
+  const cartasVistas = new Map<string, Set<string>>();
   let siguienteId = 1;
 
   return {
@@ -44,16 +82,16 @@ export function crearRepositorioDeCuentasEnMemoria(): RepositorioDeCuentas {
       return true;
     },
     async crearUsuario(input) {
-      if (usuarios.has(input.username)) {
-        throw new UsernameYaExisteError();
+      if (usuarios.has(input.email)) {
+        throw new EmailYaExisteError();
       }
 
       const usuario = { ...input, id: `usuario-${siguienteId++}` };
-      usuarios.set(usuario.username, usuario);
+      usuarios.set(usuario.email, usuario);
       return usuario;
     },
-    async buscarUsuarioPorUsername(username) {
-      return usuarios.get(username) ?? null;
+    async buscarUsuarioPorEmail(email) {
+      return usuarios.get(email) ?? null;
     },
     async buscarUsuarioPorId(id) {
       return [...usuarios.values()].find((usuario) => usuario.id === id) ?? null;
@@ -84,36 +122,82 @@ export function crearRepositorioDeCuentasEnMemoria(): RepositorioDeCuentas {
       progresos.set(usuarioId, progreso);
       return progreso;
     },
+    async obtenerEstado(usuarioId) {
+      const progreso = progresos.get(usuarioId) ?? { personalBest: null };
+      return {
+        ...progreso,
+        runActiva: runs.get(usuarioId) ?? null,
+        cartasVistas: [...(cartasVistas.get(usuarioId) ?? new Set<string>())],
+      };
+    },
+    async guardarRun(usuarioId, input) {
+      const anterior = runs.get(usuarioId);
+      if (anterior && anterior.guestRunId === input.guestRunId) {
+        if (input.clientRevision < anterior.clientRevision) throw new RunDesactualizadaError();
+        if (input.clientRevision === anterior.clientRevision && !esLaMismaRun(anterior, input)) throw new RunEnConflictoError();
+      }
+      if (anterior && anterior.guestRunId !== input.guestRunId && anterior.status === "active" && input.status === "active") {
+        throw new RunEnConflictoError();
+      }
+
+      const run: RunPersistida = {
+        guestRunId: input.guestRunId,
+        catalogVersion: input.catalogVersion,
+        seed: input.seed,
+        snapshot: input.snapshot,
+        status: input.status,
+        clientRevision: input.clientRevision,
+      };
+      if (input.status === "active") runs.set(usuarioId, run);
+      else if (!anterior || anterior.guestRunId === input.guestRunId) runs.delete(usuarioId);
+
+      const vistas = cartasVistas.get(usuarioId) ?? new Set<string>();
+      input.cartasVistas.forEach((id) => vistas.add(id));
+      cartasVistas.set(usuarioId, vistas);
+      if (input.personalBest !== null) await this.guardarRecordPersonal(usuarioId, input.personalBest);
+      return this.obtenerEstado(usuarioId);
+    },
   };
 }
 
-export function normalizarUsername(valor: string): string {
+function esLaMismaRun(anterior: RunPersistida, siguiente: GuardarRun): boolean {
+  return JSON.stringify(anterior) === JSON.stringify({
+    guestRunId: siguiente.guestRunId,
+    catalogVersion: siguiente.catalogVersion,
+    seed: siguiente.seed,
+    snapshot: siguiente.snapshot,
+    status: siguiente.status,
+    clientRevision: siguiente.clientRevision,
+  });
+}
+
+export function normalizarEmail(valor: string): string {
   return valor.normalize("NFKC").trim().toLocaleLowerCase("en-US");
 }
 
-export function validarRegistro(input: unknown): { username: string; password: string } {
+export function validarRegistro(input: unknown): { email: string; username: string; password: string } {
   if (!esRegistro(input)) {
-    throw new Error("El registro debe incluir username y password.");
+    throw new Error("El registro debe incluir email y password.");
   }
 
-  const username = normalizarUsername(input.username);
-  if (!/^[a-z0-9_]{3,32}$/.test(username)) {
-    throw new Error("El username debe tener entre 3 y 32 caracteres: letras, números o guion bajo.");
+  const email = normalizarEmail(input.email);
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    throw new Error("El email debe ser válido y tener hasta 254 caracteres.");
   }
   if (input.password.length < 10 || input.password.length > 128) {
     throw new Error("La contraseña debe tener entre 10 y 128 caracteres.");
   }
 
-  return { username, password: input.password };
+  return { email, username: email.slice(0, email.indexOf("@")), password: input.password };
 }
 
-function esRegistro(input: unknown): input is { username: string; password: string } {
+function esRegistro(input: unknown): input is { email: string; password: string } {
   return (
     typeof input === "object" &&
     input !== null &&
-    "username" in input &&
+    "email" in input &&
     "password" in input &&
-    typeof input.username === "string" &&
+    typeof input.email === "string" &&
     typeof input.password === "string"
   );
 }
@@ -136,4 +220,40 @@ export function validarPerfilInvitado(input: unknown): { personalBest: number | 
     return { personalBest: null };
   }
   return { personalBest: validarRecordPersonal({ score: input.personalBest }) };
+}
+
+export function validarGuardarRun(guestRunId: string, input: unknown): GuardarRun {
+  if (!esUuid(guestRunId) || typeof input !== "object" || input === null) {
+    throw new Error("La partida debe incluir un identificador válido y datos válidos.");
+  }
+  const valor = input as Record<string, unknown>;
+  const catalogVersion = textoAcotado(valor.catalogVersion, 80, "catalogVersion");
+  const seed = textoAcotado(valor.seed, 512, "seed");
+  if (!esObjeto(valor.snapshot)) throw new Error("La partida debe incluir un snapshot válido.");
+  const snapshot = valor.snapshot;
+  if (JSON.stringify(snapshot).length > 100_000) throw new Error("El snapshot de la partida es demasiado grande.");
+  if (valor.status !== "active" && valor.status !== "completed" && valor.status !== "abandoned") {
+    throw new Error("El estado de la partida no es válido.");
+  }
+  if (!Number.isInteger(valor.clientRevision) || (valor.clientRevision as number) < 0) {
+    throw new Error("La partida debe incluir una revisión válida.");
+  }
+  if (!Array.isArray(valor.cartasVistas) || valor.cartasVistas.length > 151 || !valor.cartasVistas.every((id) => typeof id === "string" && id.length > 0 && id.length <= 120)) {
+    throw new Error("Las cartas vistas no son válidas.");
+  }
+  const personalBest = valor.personalBest === undefined || valor.personalBest === null ? null : validarRecordPersonal({ score: valor.personalBest });
+  return { guestRunId, catalogVersion, seed, snapshot, status: valor.status, clientRevision: valor.clientRevision as number, cartasVistas: [...new Set(valor.cartasVistas)], personalBest };
+}
+
+function textoAcotado(valor: unknown, maximo: number, nombre: string): string {
+  if (typeof valor !== "string" || valor.length === 0 || valor.length > maximo) throw new Error(`El campo ${nombre} no es válido.`);
+  return valor;
+}
+
+function esUuid(valor: string): boolean {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(valor);
+}
+
+function esObjeto(valor: unknown): valor is Record<string, unknown> {
+  return typeof valor === "object" && valor !== null && !Array.isArray(valor);
 }

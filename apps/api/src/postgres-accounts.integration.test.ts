@@ -1,9 +1,9 @@
 import { randomUUID } from "node:crypto";
 
-import { Pool } from "pg";
 import { afterAll, afterEach, describe, expect, it } from "vitest";
 
 import { buildServer } from "./app.js";
+import { crearPoolOnceDraft } from "./database.js";
 import { RepositorioPostgresDeCuentas } from "./postgres-accounts.js";
 import { crearServidorDeProduccion } from "./production.js";
 
@@ -11,12 +11,12 @@ const databaseUrl = process.env.DATABASE_URL;
 const describeConPostgres = databaseUrl ? describe : describe.skip;
 
 describeConPostgres("sesiones con PostgreSQL", () => {
-  const pool = new Pool({ connectionString: databaseUrl });
-  const usernamesCreados: string[] = [];
+  const pool = crearPoolOnceDraft(databaseUrl!);
+  const emailsCreados: string[] = [];
 
   afterEach(async () => {
-    if (usernamesCreados.length > 0) {
-      await pool.query("DELETE FROM accounts WHERE username = ANY($1)", [usernamesCreados.splice(0)]);
+    if (emailsCreados.length > 0) {
+      await pool.query("DELETE FROM once_draft.accounts WHERE email = ANY($1)", [emailsCreados.splice(0)]);
     }
   });
 
@@ -26,12 +26,12 @@ describeConPostgres("sesiones con PostgreSQL", () => {
 
   it("revoca una sesión persistida al cerrar sesión", async () => {
     const app = await buildServer({ logger: false, repositorio: new RepositorioPostgresDeCuentas(pool) });
-    const username = `pg_${randomUUID().replaceAll("-", "").slice(0, 20)}`;
-    usernamesCreados.push(username);
+    const email = `pg_${randomUUID().replaceAll("-", "").slice(0, 20)}@example.test`;
+    emailsCreados.push(email);
     const registro = await app.inject({
       method: "POST",
       url: "/v1/auth/register",
-      payload: { username, password: "una-clave-local-segura" },
+      payload: { email, password: "una-clave-local-segura" },
     });
     const cookie = registro.headers["set-cookie"];
 
@@ -43,12 +43,12 @@ describeConPostgres("sesiones con PostgreSQL", () => {
 
   it("mantiene logout en el bootstrap de producción", async () => {
     const { app } = await crearServidorDeProduccion({ DATABASE_URL: databaseUrl, NODE_ENV: "development" });
-    const username = `prod_${randomUUID().replaceAll("-", "").slice(0, 18)}`;
-    usernamesCreados.push(username);
+    const email = `prod_${randomUUID().replaceAll("-", "").slice(0, 18)}@example.test`;
+    emailsCreados.push(email);
     const registro = await app.inject({
       method: "POST",
       url: "/v1/auth/register",
-      payload: { username, password: "una-clave-local-segura" },
+      payload: { email, password: "una-clave-local-segura" },
     });
     const cookie = registro.headers["set-cookie"];
 
@@ -60,12 +60,12 @@ describeConPostgres("sesiones con PostgreSQL", () => {
 
   it("persiste el mayor récord personal", async () => {
     const app = await buildServer({ logger: false, repositorio: new RepositorioPostgresDeCuentas(pool) });
-    const username = `score_${randomUUID().replaceAll("-", "").slice(0, 17)}`;
-    usernamesCreados.push(username);
+    const email = `score_${randomUUID().replaceAll("-", "").slice(0, 17)}@example.test`;
+    emailsCreados.push(email);
     const registro = await app.inject({
       method: "POST",
       url: "/v1/auth/register",
-      payload: { username, password: "una-clave-local-segura" },
+      payload: { email, password: "una-clave-local-segura" },
     });
     const cookie = registro.headers["set-cookie"];
 

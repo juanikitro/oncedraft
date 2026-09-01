@@ -5,8 +5,11 @@ import Fastify, { type FastifyBaseLogger, type FastifyInstance, type FastifyServ
 import {
   crearRepositorioDeCuentasEnMemoria,
   type RepositorioDeCuentas,
-  UsernameYaExisteError,
+  EmailYaExisteError,
+  RunDesactualizadaError,
+  RunEnConflictoError,
   validarPerfilInvitado,
+  validarGuardarRun,
   validarRecordPersonal,
   validarRegistro,
 } from "./accounts.js";
@@ -26,6 +29,7 @@ type OpcionesDeApp = {
   repositorio?: RepositorioDeCuentas;
   ahora?: () => Date;
   cookieSecure?: boolean;
+  apiOrigin?: string;
 };
 
 export async function buildServer(opciones: OpcionesDeApp = {}): Promise<FastifyInstance> {
@@ -36,15 +40,28 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
   await app.register(cookie);
   await app.register(rateLimit, { global: false });
 
+  app.addHook("onRequest", async (request, reply) => {
+    if (!opciones.apiOrigin || !["POST", "PUT", "PATCH", "DELETE"].includes(request.method)) return;
+    if (request.headers.origin !== opciones.apiOrigin) {
+      return reply.status(403).send({ error: { code: "INVALID_ORIGIN", message: "El origen de la solicitud no está permitido." } });
+    }
+  });
+
   app.setErrorHandler((error, _request, reply) => {
-    if (error instanceof UsernameYaExisteError) {
-      return reply.status(409).send({ error: { code: "USERNAME_TAKEN", message: error.message } });
+    if (error instanceof EmailYaExisteError) {
+      return reply.status(409).send({ error: { code: "EMAIL_TAKEN", message: error.message } });
     }
     if (error instanceof Error && error.message.startsWith("El ")) {
       return reply.status(400).send({ error: { code: "VALIDATION_ERROR", message: error.message } });
     }
     if (error instanceof NoAutenticadoError) {
       return reply.status(401).send({ error: { code: "UNAUTHENTICATED", message: error.message } });
+    }
+    if (error instanceof RunDesactualizadaError) {
+      return reply.status(409).send({ error: { code: "STALE_RUN", message: error.message } });
+    }
+    if (error instanceof RunEnConflictoError) {
+      return reply.status(409).send({ error: { code: "RUN_CONFLICT", message: error.message } });
     }
     if (tieneStatusCode(error, 429)) {
       return reply.status(429).send({
@@ -64,8 +81,8 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
   });
 
   app.post("/v1/auth/register", { config: { rateLimit: { max: 5, timeWindow: "1 minute" } } }, async (request, reply) => {
-    const { username, password } = validarRegistro(request.body);
-    const usuario = await repositorio.crearUsuario({ username, passwordHash: await hashearPassword(password) });
+    const { email, username, password } = validarRegistro(request.body);
+    const usuario = await repositorio.crearUsuario({ email, username, passwordHash: await hashearPassword(password) });
     const fechaActual = ahora();
     const { token, tokenHash } = crearTokenDeSesion();
     const expiraEn = new Date(fechaActual.getTime() + DURACION_SESION_MS);
@@ -75,15 +92,15 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
       httpOnly: true,
       sameSite: "lax",
       secure: opciones.cookieSecure ?? false,
-      path: "/",
+      path: "/api",
       expires: expiraEn,
     });
-    return reply.status(201).send({ usuario: { id: usuario.id, username: usuario.username } });
+    return reply.status(201).send({ usuario: serializarUsuario(usuario) });
   });
 
   app.post("/v1/auth/login", { config: { rateLimit: { max: 5, timeWindow: "1 minute" } } }, async (request, reply) => {
-    const { username, password } = validarRegistro(request.body);
-    const usuario = await repositorio.buscarUsuarioPorUsername(username);
+    const { email, password } = validarRegistro(request.body);
+    const usuario = await repositorio.buscarUsuarioPorEmail(email);
     if (!usuario || !(await verificarPassword(usuario.passwordHash, password))) {
       throw new NoAutenticadoError();
     }
@@ -96,10 +113,10 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
       httpOnly: true,
       sameSite: "lax",
       secure: opciones.cookieSecure ?? false,
-      path: "/",
+      path: "/api",
       expires: expiraEn,
     });
-    return { usuario: { id: usuario.id, username: usuario.username } };
+    return { usuario: serializarUsuario(usuario) };
   });
 
   app.post("/v1/auth/logout", async (request, reply) => {
@@ -107,14 +124,29 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
     if (token) {
       await repositorio.revocarSesion(hashTokenDeSesion(token), ahora());
     }
-    reply.clearCookie(NOMBRE_COOKIE_SESION, { path: "/", secure: opciones.cookieSecure ?? false });
+    reply.clearCookie(NOMBRE_COOKIE_SESION, { path: "/api", secure: opciones.cookieSecure ?? false, sameSite: "lax" });
     return reply.status(204).send();
   });
 
   app.get("/v1/me", async (request) => {
     const usuario = await obtenerUsuarioAutenticado(request.cookies[NOMBRE_COOKIE_SESION], repositorio, ahora);
     const progreso = await repositorio.obtenerProgreso(usuario.id);
-    return { usuario: { id: usuario.id, username: usuario.username }, ...progreso };
+    return { usuario: serializarUsuario(usuario), ...progreso };
+  });
+
+  app.get("/v1/me/state", async (request, reply) => {
+    const usuario = await obtenerUsuarioAutenticado(request.cookies[NOMBRE_COOKIE_SESION], repositorio, ahora);
+    reply.header("Cache-Control", "no-store");
+    return repositorio.obtenerEstado(usuario.id);
+  });
+
+  app.put("/v1/me/runs/:guestRunId", async (request, reply) => {
+    const usuario = await obtenerUsuarioAutenticado(request.cookies[NOMBRE_COOKIE_SESION], repositorio, ahora);
+    const parametros = request.params as { guestRunId?: unknown };
+    const guestRunId = typeof parametros.guestRunId === "string" ? parametros.guestRunId : "";
+    const estado = await repositorio.guardarRun(usuario.id, validarGuardarRun(guestRunId, request.body));
+    reply.header("Cache-Control", "no-store");
+    return estado;
   });
 
   app.put("/v1/me/personal-best", async (request) => {
@@ -136,6 +168,10 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
 }
 
 export { NOMBRE_COOKIE_SESION };
+
+function serializarUsuario(usuario: { email: string; username: string }) {
+  return { email: usuario.email, username: usuario.username };
+}
 
 function tieneStatusCode(error: unknown, statusCode: number): boolean {
   return typeof error === "object" && error !== null && "statusCode" in error && error.statusCode === statusCode;

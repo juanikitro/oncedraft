@@ -8,7 +8,7 @@
     "start": "tsx src/server.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "db:migrate": "node-pg-migrate -m migrations up",
+    "db:migrate": "node-pg-migrate -m migrations up --schema once_draft --create-schema --migrations-schema once_draft --create-migrations-schema",
     "catalog:import-active": "tsx src/import-active-catalog.ts"
   },
   "dependencies": {

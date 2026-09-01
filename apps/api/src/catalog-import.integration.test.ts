@@ -1,15 +1,15 @@
 import { randomUUID } from "node:crypto";
 
-import { Pool } from "pg";
 import { afterAll, afterEach, describe, expect, it } from "vitest";
 
 import { importarCatalogoActivo } from "./catalog-import.js";
+import { crearPoolOnceDraft } from "./database.js";
 
 const databaseUrl = process.env.DATABASE_URL;
 const describeConPostgres = databaseUrl ? describe : describe.skip;
 
 describeConPostgres("importación activa con PostgreSQL", () => {
-  const pool = new Pool({ connectionString: databaseUrl });
+  const pool = crearPoolOnceDraft(databaseUrl!);
   const versionesCreadas: string[] = [];
   const cartasCreadas: string[] = [];
 

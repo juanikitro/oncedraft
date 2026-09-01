@@ -1,7 +1,6 @@
-import { Pool } from "pg";
-
 import { buildServer } from "./app.js";
 import { cargarConfiguracion, type ConfiguracionApi } from "./config.js";
+import { crearPoolOnceDraft } from "./database.js";
 import { RepositorioPostgresDeCuentas } from "./postgres-accounts.js";
 
 export async function crearServidorDeProduccion(env: NodeJS.ProcessEnv = process.env): Promise<{
@@ -9,10 +8,11 @@ export async function crearServidorDeProduccion(env: NodeJS.ProcessEnv = process
   configuracion: ConfiguracionApi;
 }> {
   const configuracion = cargarConfiguracion(env);
-  const pool = new Pool({ connectionString: configuracion.databaseUrl });
+  const pool = crearPoolOnceDraft(configuracion.databaseUrl);
   const app = await buildServer({
     repositorio: new RepositorioPostgresDeCuentas(pool),
     cookieSecure: configuracion.cookieSecure,
+    ...(configuracion.apiOrigin ? { apiOrigin: configuracion.apiOrigin } : {}),
   });
   app.addHook("onClose", async () => pool.end());
   return { app, configuracion };
