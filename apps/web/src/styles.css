@@ -361,9 +361,9 @@ html:has(.app-shell), body:has(.app-shell) { overflow: hidden; }
 .dock-siguiente .cta-discreta { min-width: 0; min-height: 48px; padding-inline: 10px; }
 .dock-siguiente small { grid-column: 1 / -1; color: #e6c98e; font-size: 11px; text-align: center; }
 .oferta-viewport { display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 9px; }
-.oferta-encabezado { display: flex; align-items: end; justify-content: space-between; gap: 10px; }
-.oferta-encabezado h1 { margin: 2px 0 0; }
-.oferta-encabezado .cta-discreta { min-height: 44px; padding-inline: 9px; }
+.oferta-encabezado { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 5px 8px; }
+.oferta-encabezado h1 { grid-column: 1 / -1; margin: 2px 0 0; font-size: clamp(23px, 6.8vw, 32px); white-space: nowrap; }
+.oferta-encabezado .cta-discreta { grid-column: 2; min-height: 36px; padding-inline: 9px; }
 .oferta-viewport .decisiones { order: 0; margin: 0; }
 .oferta-viewport .oferta-normal, .oferta-viewport .oferta-ampliada { display: grid; grid-template-rows: minmax(0, 1fr) auto auto; min-height: 0; }
 .visor-oferta { display: grid; min-height: 0; place-items: center; overflow: hidden; }
@@ -444,6 +444,30 @@ button:focus-visible { outline: 2px solid #83b3ff; outline-offset: 4px; box-shad
 .cuenta-disparador { position: absolute; top: max(14px, env(safe-area-inset-top)); right: var(--space-4); z-index: 2; min-height: 38px; border: 1px solid rgb(221 201 148 / 36%); padding: 6px 10px; background: rgb(17 21 23 / 78%); color: var(--paper-50); font-family: var(--display); font-weight: 800; letter-spacing: .04em; }
 .cabecera-run { position: relative; }
 .cabecera-run .cuenta-disparador { top: 7px; right: 8px; }
+.cabecera-run { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "progreso cuenta"; align-items: start; }
+.cabecera-run .progreso-run { grid-area: progreso; }
+.cabecera-run .cuenta-disparador, .landing > .cuenta-disparador, .resultado > .cuenta-disparador { position: static; z-index: auto; justify-self: end; align-self: start; }
+.cabecera-run .cuenta-disparador { grid-area: cuenta; margin: 0; }
+.landing > .cuenta-disparador, .resultado > .cuenta-disparador { margin-left: auto; }
+
+/* Revelación: el contexto ya existe en el motor; la animación sólo lo presenta. */
+.oferta-viewport { grid-template-rows: auto auto auto minmax(0, 1fr); }
+.contexto-oferta { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; min-height: 74px; border: 1px solid rgb(221 201 148 / 48%); border-left: 4px solid var(--signal-red-600); padding: 9px 12px; background: linear-gradient(105deg, rgb(221 201 148 / 15%), rgb(28 37 39 / 78%)); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 3%); }
+.contexto-oferta > span { color: #bfc8c5; font-family: var(--display); font-size: 12px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.contexto-oferta > strong, .contexto-oferta > b { overflow: hidden; color: var(--paper-50); font-family: var(--display); font-size: clamp(20px, 6vw, 28px); letter-spacing: .04em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.contexto-oferta > b { color: var(--brass-300); }
+.contexto-oferta.fase-pais > strong, .contexto-oferta.fase-epoca > b { color: #d8f6d1; text-shadow: 0 0 8px rgb(112 237 159 / 48%); animation: descifrar-contexto 50ms steps(2, end) infinite; }
+.lectura-asistida { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.oferta-bloqueada .carril-oferta { pointer-events: none; }
+.oferta-bloqueada .carril-carta { opacity: 0; transform: translateY(22px) scale(.94); }
+.oferta-carrusel:not(.oferta-bloqueada) .carril-carta { animation: entrar-carta-oferta 300ms both cubic-bezier(.2, .85, .25, 1); }
+.oferta-carrusel:not(.oferta-bloqueada) .carril-carta:nth-child(2) { animation-delay: 70ms; }
+.oferta-carrusel:not(.oferta-bloqueada) .carril-carta:nth-child(3) { animation-delay: 140ms; }
+.oferta-carrusel:not(.oferta-bloqueada) .carril-carta:nth-child(4) { animation-delay: 210ms; }
+.oferta-carrusel:not(.oferta-bloqueada) .carril-carta:nth-child(5) { animation-delay: 280ms; }
+@keyframes descifrar-contexto { from { filter: blur(.7px); opacity: .62; } to { filter: blur(0); opacity: 1; } }
+@keyframes entrar-carta-oferta { from { opacity: 0; transform: translateY(22px) scale(.94); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .contexto-oferta.fase-pais > strong, .contexto-oferta.fase-epoca > b, .oferta-carrusel:not(.oferta-bloqueada) .carril-carta { animation: none; } }
 .hoja-cuenta { position: absolute; right: 0; bottom: 0; left: 0; display: grid; gap: 14px; max-width: 560px; max-height: min(88dvh, 660px); margin: auto; overflow: auto; border-top: 4px solid var(--signal-blue-600); border-radius: 18px 18px 0 0; padding: 16px var(--space-4) max(20px, env(safe-area-inset-bottom)); background: linear-gradient(145deg, #faf5eb, #e7dece); color: var(--ink-950); box-shadow: 0 -12px 44px rgb(0 0 0 / 56%); }
 .cuenta-encabezado { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
 .cuenta-encabezado h2 { margin: 0; font-size: 34px; text-transform: uppercase; }
