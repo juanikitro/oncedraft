@@ -125,6 +125,12 @@ export interface ConfirmarPickInput {
   idPlazaDestino?: IdPlaza;
 }
 
+export interface SimularPickInput {
+  partida: EstadoPartida;
+  idCartaElegida: string;
+  idPlazaDestino?: IdPlaza;
+}
+
 export interface UsarRerollInput {
   catalogo: Catalogo;
   partida: EstadoPartida;
@@ -243,6 +249,8 @@ export function moverCartaEntrePlazas({
   idPlazaDestino: IdPlaza;
 }): readonly UbicacionCarta[] {
   const ubicacionOrigen = ubicaciones.find((ubicacion) => ubicacion.idCarta === idCarta);
+  if (ubicacionOrigen?.idPlaza === idPlazaDestino) return ubicaciones;
+
   const ubicacionDestino = ubicaciones.find((ubicacion) => ubicacion.idPlaza === idPlazaDestino);
   const ubicacionesSinOrigenNiDestino = ubicaciones.filter((ubicacion) => {
     return ubicacion.idCarta !== idCarta && ubicacion.idPlaza !== idPlazaDestino;
@@ -301,6 +309,62 @@ export function ubicarCartaAutomaticamente({
   }
 
   return [...ubicacionesSinCarta, { idCarta: carta.id, idPlaza: plazaDestino.id }];
+}
+
+/** Recupera ubicaciones válidas y completa plazas omitidas por snapshots de versiones anteriores. */
+function normalizarUbicaciones({
+  cartas,
+  ubicaciones,
+}: {
+  cartas: readonly Carta[];
+  ubicaciones: readonly UbicacionCarta[];
+}): readonly UbicacionCarta[] {
+  const idsCartas = new Set(cartas.map((carta) => carta.id));
+  const cartasUsadas = new Set<string>();
+  const plazasUsadas = new Set<IdPlaza>();
+  const iniciales = ubicaciones.filter((ubicacion) => {
+    if (!idsCartas.has(ubicacion.idCarta) || cartasUsadas.has(ubicacion.idCarta) || plazasUsadas.has(ubicacion.idPlaza)) return false;
+    cartasUsadas.add(ubicacion.idCarta);
+    plazasUsadas.add(ubicacion.idPlaza);
+    return true;
+  });
+
+  return cartas.reduce<readonly UbicacionCarta[]>((resultado, carta) => {
+    return resultado.some((ubicacion) => ubicacion.idCarta === carta.id)
+      ? resultado
+      : ubicarCartaAutomaticamente({ carta, ubicaciones: resultado });
+  }, iniciales);
+}
+
+function prepararUbicacionesParaPick({
+  partida,
+  cartaElegida,
+  idPlazaDestino,
+}: {
+  partida: EstadoPartida;
+  cartaElegida: Carta;
+  idPlazaDestino?: IdPlaza | undefined;
+}): readonly UbicacionCarta[] {
+  const ubicacionesConfirmadas = normalizarUbicaciones({ cartas: partida.cartasElegidas, ubicaciones: partida.ubicaciones });
+  const ubicacionesAutomaticas = ubicarCartaAutomaticamente({ carta: cartaElegida, ubicaciones: ubicacionesConfirmadas });
+  return idPlazaDestino
+    ? moverCartaEntrePlazas({ ubicaciones: ubicacionesAutomaticas, idCarta: cartaElegida.id, idPlazaDestino })
+    : ubicacionesAutomaticas;
+}
+
+/** Proyecta una carta de la oferta en la pizarra sin crear la siguiente oferta ni calcular un resultado. */
+export function simularPick({ partida, idCartaElegida, idPlazaDestino }: SimularPickInput): EstadoPartida {
+  if (partida.completada) throw new Error("La partida ya fue completada.");
+  const cartaElegida = partida.ofertaActiva.opciones.find((carta) => carta.id === idCartaElegida);
+  if (!cartaElegida) throw new Error("La carta elegida no pertenece a la oferta activa.");
+
+  return {
+    ...partida,
+    cartasElegidas: [...partida.cartasElegidas, cartaElegida],
+    ubicaciones: prepararUbicacionesParaPick({ partida, cartaElegida, idPlazaDestino }),
+    completada: false,
+    resultado: null,
+  };
 }
 
 /**
@@ -476,10 +540,7 @@ export function confirmarPick({ catalogo, partida, idCartaElegida, idPlazaDestin
 
   const contextosAgotados = [...partida.contextosAgotados, partida.ofertaActiva.contexto];
   const cartasElegidas = [...partida.cartasElegidas, cartaElegida];
-  const ubicacionesAutomaticas = ubicarCartaAutomaticamente({ carta: cartaElegida, ubicaciones: partida.ubicaciones });
-  const ubicaciones = idPlazaDestino
-    ? moverCartaEntrePlazas({ ubicaciones: ubicacionesAutomaticas, idCarta: cartaElegida.id, idPlazaDestino })
-    : ubicacionesAutomaticas;
+  const ubicaciones = prepararUbicacionesParaPick({ partida, cartaElegida, idPlazaDestino });
   const esPickFinal = partida.numeroDePick === PLAZAS_4_3_3.length;
 
   if (esPickFinal) {

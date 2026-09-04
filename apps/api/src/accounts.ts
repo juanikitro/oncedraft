@@ -54,6 +54,7 @@ export interface RepositorioDeCuentas {
   crearUsuario(input: Omit<Usuario, "id">): Promise<Usuario>;
   buscarUsuarioPorEmail(email: string): Promise<Usuario | null>;
   buscarUsuarioPorId(id: string): Promise<Usuario | null>;
+  listarUsuariosPublicos(): Promise<readonly Pick<Usuario, "id" | "username">[]>;
   crearSesion(sesion: Sesion): Promise<void>;
   buscarSesionActiva(tokenHash: string, ahora: Date): Promise<Sesion | null>;
   revocarSesion(tokenHash: string, ahora: Date): Promise<void>;
@@ -95,6 +96,9 @@ export function crearRepositorioDeCuentasEnMemoria(): RepositorioDeCuentas {
     },
     async buscarUsuarioPorId(id) {
       return [...usuarios.values()].find((usuario) => usuario.id === id) ?? null;
+    },
+    async listarUsuariosPublicos() {
+      return [...usuarios.values()].map(({ id, username }) => ({ id, username }));
     },
     async crearSesion(sesion) {
       sesiones.set(sesion.tokenHash, sesion);
@@ -184,8 +188,8 @@ export function validarRegistro(input: unknown): { email: string; username: stri
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new Error("El email debe ser válido y tener hasta 254 caracteres.");
   }
-  if (input.password.length < 10 || input.password.length > 128) {
-    throw new Error("La contraseña debe tener entre 10 y 128 caracteres.");
+  if (input.password.length < 5 || input.password.length > 128) {
+    throw new Error("La contraseña debe tener entre 5 y 128 caracteres.");
   }
 
   return { email, username: email.slice(0, email.indexOf("@")), password: input.password };

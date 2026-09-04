@@ -13,4 +13,15 @@ describe("configuracionPoolOnceDraft", () => {
       connectionTimeoutMillis: 5_000,
     });
   });
+
+  it("verifica el certificado de la base cuando recibe el CA de Supabase", () => {
+    const certificate = "-----BEGIN CERTIFICATE-----\\ntrusted-ca\\n-----END CERTIFICATE-----";
+
+    expect(configuracionPoolOnceDraft("postgresql://draft:secret@localhost/draft", Buffer.from(certificate).toString("base64"))).toMatchObject({
+      ssl: {
+        ca: certificate,
+        rejectUnauthorized: true,
+      },
+    });
+  });
 });

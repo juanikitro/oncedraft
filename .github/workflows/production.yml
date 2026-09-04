@@ -1,0 +1,77 @@
+name: Producción
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: once-draft-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+
+  migrar:
+    name: Migrar y verificar base de datos
+    needs: validar
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DATABASE_URL: ${{ secrets.ONCEDRAFT_MIGRATIONS_DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run db:migrate -w @draft/api
+      - run: npm exec tsx scripts/verify-production-migrations.ts
+
+  desplegar:
+    name: Desplegar y verificar producción
+    needs: migrar
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - id: deploy
+        name: Desplegar en Vercel
+        shell: bash
+        run: |
+          deployment_url="$(npm exec --yes vercel@56.4.1 -- deploy --prod --yes --token="$VERCEL_TOKEN")"
+          printf 'url=%s\n' "$deployment_url" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke check de API y base de datos
+        run: npm exec tsx scripts/smoke-production.ts "${{ steps.deploy.outputs.url }}"

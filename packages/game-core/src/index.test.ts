@@ -12,6 +12,7 @@ import {
   moverCartaEntrePlazas,
   planificarProteccionPosicional,
   reorganizarPartida,
+  simularPick,
   ubicarCartaAutomaticamente,
   usarReroll,
   usarScouting,
@@ -266,6 +267,30 @@ describe("confirmarPick", () => {
   });
 });
 
+describe("simularPick", () => {
+  it("no calcula el resultado del pick 11 y recompone ubicaciones persistidas faltantes", () => {
+    const catalogo = crearCatalogoConContextosDeCincoCartas(12);
+    let partida = iniciarPartida({ catalogo, seed: "seed-simulacion-final" });
+
+    while (partida.numeroDePick < 11) {
+      partida = confirmarPrimeraOpcion(partida, catalogo);
+    }
+
+    const cartaFinal = partida.ofertaActiva.opciones[0];
+    if (!cartaFinal) throw new Error("La fixture debe producir una carta final.");
+
+    const partidaConPlazaFaltante = {
+      ...partida,
+      ubicaciones: partida.ubicaciones.slice(1),
+    };
+    const simulacion = simularPick({ partida: partidaConPlazaFaltante, idCartaElegida: cartaFinal.id });
+
+    expect(simulacion.completada).toBe(false);
+    expect(simulacion.resultado).toBeNull();
+    expect(simulacion.ubicaciones).toHaveLength(11);
+  });
+});
+
 describe("usarReroll", () => {
   it("mantiene el contexto y reemplaza toda la oferta por cartas inéditas", () => {
     const catalogo = crearCatalogoConContextosDeCincoCartas(1, 6);
@@ -393,6 +418,15 @@ describe("moverCartaEntrePlazas", () => {
       { idCarta: "defensor", idPlaza: "LD" },
       { idCarta: "lateral", idPlaza: "DFC-1" },
     ]);
+  });
+
+  it("conserva las ubicaciones cuando se confirma la plaza donde la carta ya estaba", () => {
+    const ubicaciones = [
+      { idCarta: "defensor", idPlaza: "DFC-1" as const },
+      { idCarta: "lateral", idPlaza: "LD" as const },
+    ];
+
+    expect(moverCartaEntrePlazas({ ubicaciones, idCarta: "defensor", idPlazaDestino: "DFC-1" })).toEqual(ubicaciones);
   });
 });
 

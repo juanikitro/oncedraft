@@ -1,9 +1,66 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 
 import { buildServer } from "./app.js";
 import { crearRepositorioDeCuentasEnMemoria } from "./accounts.js";
+import { crearRepositorioDeDraftDiarioEnMemoria } from "./daily-drafts.js";
+import type { Catalogo } from "@draft/game-core";
+
+const catalogoDiarioDePrueba = JSON.parse(readFileSync(new URL("../../web/public/catalog/catalog.json", import.meta.url), "utf8")) as Catalogo;
 
 describe("API de cuentas", () => {
+  it("resuelve el Draft diario en servidor, oculta el seed y fija premios compartidos al cierre", async () => {
+    let instante = new Date("2026-09-03T20:00:00.000Z");
+    const cuentas = crearRepositorioDeCuentasEnMemoria();
+    const diario = crearRepositorioDeDraftDiarioEnMemoria([catalogoDiarioDePrueba], () => cuentas.listarUsuariosPublicos());
+    const app = await buildServer({ logger: false, repositorio: cuentas, repositorioDiario: diario, ahora: () => instante });
+    const cookies: string[] = [];
+    for (const email of ["uno@example.com", "dos@example.com", "tres@example.com"]) {
+      const registro = await app.inject({ method: "POST", url: "/v1/auth/register", payload: { email, password: "un-secreto-largo" } });
+      const cookie = registro.headers["set-cookie"];
+      if (typeof cookie !== "string") throw new Error("El registro no devolvió cookie de sesión.");
+      cookies.push(cookie);
+    }
+
+    for (const cookie of cookies) {
+      let estado = (await app.inject({ method: "POST", url: "/v1/me/daily/start", headers: { cookie } })).json();
+      expect(estado.partida.seed).toBe("servidor");
+      expect(estado.partida.planDeProteccion).toEqual([]);
+      for (let pick = 0; pick < 11; pick += 1) {
+        const payload = {
+          version: estado.version,
+          idempotencyKey: `00000000-0000-4000-8000-${String(pick + 1).padStart(12, "0")}`,
+          accion: { tipo: "pick", idCarta: estado.partida.ofertaActiva.opciones[0].id },
+        };
+        const respuesta = await app.inject({ method: "POST", url: "/v1/me/daily/actions", headers: { cookie }, payload });
+        expect(respuesta.statusCode).toBe(200);
+        estado = respuesta.json();
+        if (pick === 0) {
+          const reintento = await app.inject({ method: "POST", url: "/v1/me/daily/actions", headers: { cookie }, payload });
+          expect(reintento.json()).toEqual(estado);
+        }
+      }
+      expect(estado.estado).toBe("completed");
+      expect(estado.puestoProvisional).toBe(1);
+    }
+
+    instante = new Date("2026-09-04T02:55:00.000Z");
+    const tarde = await app.inject({ method: "POST", url: "/v1/auth/register", payload: { email: "tarde@example.com", password: "un-secreto-largo" } });
+    const intentoTarde = await app.inject({ method: "POST", url: "/v1/me/daily/start", headers: { cookie: tarde.headers["set-cookie"] } });
+    expect(intentoTarde.statusCode).toBe(409);
+    expect(intentoTarde.json()).toMatchObject({ error: { code: "DAILY_UNAVAILABLE" } });
+
+    instante = new Date("2026-09-04T03:00:01.000Z");
+    const ayer = await app.inject({ method: "GET", url: "/v1/daily/rankings/ayer", headers: { cookie: cookies[0] } });
+    const acumulado = await app.inject({ method: "GET", url: "/v1/daily/rankings/ultimos_31_dias", headers: { cookie: cookies[0] } });
+    expect(ayer.json().filas).toHaveLength(3);
+    expect(ayer.json().filas.every((fila: { puesto: number }) => fila.puesto === 1)).toBe(true);
+    expect(acumulado.json().filas).toHaveLength(3);
+    expect(acumulado.json().filas.every((fila: { puntos: number }) => fila.puntos === 10)).toBe(true);
+    expect(acumulado.json().filas.find((fila: { esPropio: boolean }) => fila.esPropio)).toBeTruthy();
+    await app.close();
+  });
+
   it("declara no disponible si la persistencia no responde", async () => {
     const repositorioBase = crearRepositorioDeCuentasEnMemoria();
     const app = await buildServer({
@@ -48,6 +105,24 @@ describe("API de cuentas", () => {
 
     expect(duplicado.statusCode).toBe(409);
     expect(duplicado.json()).toMatchObject({ error: { code: "EMAIL_TAKEN" } });
+    await app.close();
+  });
+
+  it("accede con una cuenta existente o crea una nueva sin revelar una contraseña incorrecta", async () => {
+    const app = await buildServer({ logger: false, repositorio: crearRepositorioDeCuentasEnMemoria() });
+    const nueva = { email: "nueva@example.com", password: "clave" };
+
+    const creada = await app.inject({ method: "POST", url: "/v1/auth/access", payload: nueva });
+    const existente = await app.inject({ method: "POST", url: "/v1/auth/access", payload: nueva });
+    const incorrecta = await app.inject({ method: "POST", url: "/v1/auth/access", payload: { ...nueva, password: "otra-clave" } });
+    const corta = await app.inject({ method: "POST", url: "/v1/auth/access", payload: { ...nueva, email: "corta@example.com", password: "1234" } });
+
+    expect(creada.statusCode).toBe(200);
+    expect(creada.headers["set-cookie"]).toContain("draft_session=");
+    expect(existente.statusCode).toBe(200);
+    expect(incorrecta.statusCode).toBe(401);
+    expect(incorrecta.json()).toMatchObject({ error: { code: "UNAUTHENTICATED" } });
+    expect(corta.statusCode).toBe(400);
     await app.close();
   });
 

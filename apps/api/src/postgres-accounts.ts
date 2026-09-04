@@ -99,6 +99,11 @@ export class RepositorioPostgresDeCuentas implements RepositorioDeCuentas {
     return aUsuario(resultado.rows[0]);
   }
 
+  async listarUsuariosPublicos(): Promise<readonly Pick<Usuario, "id" | "username">[]> {
+    const resultado = await this.pool.query<{ id: string; username: string }>("SELECT id, username FROM once_draft.accounts");
+    return resultado.rows;
+  }
+
   async crearSesion(sesion: Sesion): Promise<void> {
     await this.pool.query(
       `INSERT INTO once_draft.sessions (token_hash, account_id, expires_at, revoked_at)
