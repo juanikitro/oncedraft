@@ -9,7 +9,7 @@ import {
   type Catalogo,
   type EstadoPartida,
   type IdPlaza,
-} from "@draft/game-core";
+} from "./game-core.js";
 
 export const ZONA_HORARIA_ARGENTINA = "America/Argentina/Buenos_Aires";
 export const PUNTOS_POR_PUESTO: Readonly<Record<number, number>> = { 1: 10, 2: 6, 3: 3 };

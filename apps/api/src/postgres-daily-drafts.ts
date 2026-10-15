@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-import { iniciarPartidaConProteccion, type Catalogo, type EstadoPartida } from "@draft/game-core";
+import { iniciarPartidaConProteccion, type Catalogo, type EstadoPartida } from "./game-core.js";
 import type { Pool, PoolClient } from "pg";
 
 import {
