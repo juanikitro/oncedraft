@@ -15,7 +15,7 @@ export async function crearServidorDeProduccion(env: NodeJS.ProcessEnv = process
     repositorio,
     repositorioDiario: new RepositorioPostgresDeDraftDiario(pool),
     cookieSecure: configuracion.cookieSecure,
-    ...(configuracion.apiOrigin ? { apiOrigin: configuracion.apiOrigin } : {}),
+    ...(configuracion.apiOrigins ? { apiOrigins: configuracion.apiOrigins } : {}),
     ...(configuracion.cronSecret ? { cronSecret: configuracion.cronSecret } : {}),
   });
   app.addHook("onClose", async () => pool.end());

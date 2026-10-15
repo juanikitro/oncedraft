@@ -322,8 +322,29 @@ describe("API de cuentas", () => {
     await app.close();
   });
 
+  it("acepta mutaciones desde cualquiera de los orígenes configurados", async () => {
+    const app = await buildServer({ logger: false, repositorio: crearRepositorioDeCuentasEnMemoria(), apiOrigins: ["https://oncedraft.vercel.app", "https://oncedraft.juanikitro.com"] });
+    for (const [i, origin] of ["https://oncedraft.vercel.app", "https://oncedraft.juanikitro.com"].entries()) {
+      const respuesta = await app.inject({
+        method: "POST",
+        url: "/v1/auth/register",
+        headers: { origin },
+        payload: { email: `origen_${i}@example.com`, password: "un-secreto-largo" },
+      });
+      expect(respuesta.statusCode).not.toBe(403);
+    }
+    const ajeno = await app.inject({
+      method: "POST",
+      url: "/v1/auth/register",
+      headers: { origin: "https://oncedraft.vercel.app.evil.com" },
+      payload: { email: "origen_ajeno@example.com", password: "un-secreto-largo" },
+    });
+    expect(ajeno.statusCode).toBe(403);
+    await app.close();
+  });
+
   it("requiere el origen configurado para mutaciones", async () => {
-    const app = await buildServer({ logger: false, repositorio: crearRepositorioDeCuentasEnMemoria(), apiOrigin: "https://oncedraft.vercel.app" });
+    const app = await buildServer({ logger: false, repositorio: crearRepositorioDeCuentasEnMemoria(), apiOrigins: ["https://oncedraft.vercel.app"] });
     const respuesta = await app.inject({
       method: "POST",
       url: "/v1/auth/register",

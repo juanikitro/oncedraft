@@ -4,7 +4,7 @@ export type ConfiguracionApi = {
   host: string;
   port: number;
   cookieSecure: boolean;
-  apiOrigin?: string;
+  apiOrigins?: string[];
   cronSecret?: string;
 };
 
@@ -23,12 +23,13 @@ export function cargarConfiguracion(env: NodeJS.ProcessEnv = process.env): Confi
     throw new Error("PORT debe ser un puerto válido.");
   }
 
-  const apiOrigin = env.API_ORIGIN;
+  // API_ORIGIN acepta varios orígenes separados por coma (p. ej. el dominio propio y el .vercel.app).
+  const apiOrigins = env.API_ORIGIN?.split(",").map((origen) => origen.trim()).filter(Boolean);
   const cronSecret = env.CRON_SECRET;
-  if (apiOrigin !== undefined && !esOrigenHttp(apiOrigin)) {
-    throw new Error("API_ORIGIN debe ser un origen HTTP(S) válido.");
+  if (apiOrigins !== undefined && !apiOrigins.every(esOrigenHttp)) {
+    throw new Error("API_ORIGIN debe ser un origen HTTP(S) válido o una lista separada por comas.");
   }
-  if (env.NODE_ENV === "production" && !apiOrigin) {
+  if (env.NODE_ENV === "production" && !apiOrigins?.length) {
     throw new Error("API_ORIGIN es obligatoria en producción.");
   }
 
@@ -38,7 +39,7 @@ export function cargarConfiguracion(env: NodeJS.ProcessEnv = process.env): Confi
     host: env.HOST ?? "127.0.0.1",
     port,
     cookieSecure: env.NODE_ENV === "production",
-    ...(apiOrigin ? { apiOrigin } : {}),
+    ...(apiOrigins?.length ? { apiOrigins } : {}),
     ...(cronSecret ? { cronSecret } : {}),
   };
 }

@@ -38,7 +38,7 @@ type OpcionesDeApp = {
   repositorio?: RepositorioDeCuentas;
   ahora?: () => Date;
   cookieSecure?: boolean;
-  apiOrigin?: string;
+  apiOrigins?: string[];
   repositorioDiario?: RepositorioDeDraftDiario;
   cronSecret?: string;
 };
@@ -53,8 +53,8 @@ export async function buildServer(opciones: OpcionesDeApp = {}): Promise<Fastify
   await app.register(rateLimit, { global: false });
 
   app.addHook("onRequest", async (request, reply) => {
-    if (!opciones.apiOrigin || !["POST", "PUT", "PATCH", "DELETE"].includes(request.method)) return;
-    if (request.headers.origin !== opciones.apiOrigin) {
+    if (!opciones.apiOrigins?.length || !["POST", "PUT", "PATCH", "DELETE"].includes(request.method)) return;
+    if (!request.headers.origin || !opciones.apiOrigins.includes(request.headers.origin)) {
       return reply.status(403).send({ error: { code: "INVALID_ORIGIN", message: "El origen de la solicitud no está permitido." } });
     }
   });
